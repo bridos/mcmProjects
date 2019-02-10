@@ -1,0 +1,83 @@
+<!DOCTYPE html> 
+<html>
+
+<head>
+  <title>Console</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" /> 
+  <!-- modernizr enables HTML5 elements and feature detects -->
+  <!--<script type="text/javascript" src="js/modernizr-1.5.min.js"></script> -->
+</head>
+
+<body>
+  <div id="main">		
+
+    <header>
+	  <div id="strapline">
+	    <div id="welcome_slogan">
+	      <h3>Items that Need Attention</h3>
+	    </div><!--close welcome_slogan-->
+      </div><!--close strapline-->	  
+	  <!-- <nav>
+	    <div id="menubar">
+          <ul id="nav">
+            <li class="current"><a href="index2.html">Home</a></li>
+            <li><a href="view_data.html">View Data</a></li>
+            <li><a href="latest_values.html">Latest Values</a></li>
+            <li><a href="remove_card.html">Edit Cards</a></li>
+            <li class="scurrent">
+              <div class='dropdown'>
+                <label class='dropbtn'>Add</label>
+                <div class='dropdown-content'>
+                  <ul>
+                    <li onclick='control_function(1)'>Monitored Card</li>
+                    <li onclick='control_function(2)'>Bought Card</li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li class="scurrent">
+              <div class='dropdown'>
+                <label class='dropbtn'>Remove</label>
+                <div class='dropdown-content'>
+                  <ul>
+                    <li onclick='get_cards()'>Monitored Card</li>
+                    <li onclick='get_bought_cards()'>Bought Card</li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li><a href="test_area.html">Tests</a></li>
+            <li><a href="analytics.html">Analysis</a></li>
+        </div>	
+      </nav> -->
+    </header>
+    
+    <!-- <div id="slideshow_container">  
+	  <div class="slideshow">
+	    <ul class="slideshow">
+          <li class="show"><img width="940" height="250" src="images/img1.jpg" </li>
+          <li><img width="940" height="250" src="images/img3.jpg" /></li>
+        </ul> 
+	  </div>close slideshow  	
+	</div>close slideshow_container-->  
+	
+   <div id = "cardInfo">  </div>
+	
+  </div><!--close main-->
+  
+  <!-- javascript at the bottom for fast page loading -->
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  <!--<script type="text/javascript" src="js/image_slide.js"></script> -->
+  <script type="text/javascript" src="js/functions.js"></script>
+  <script type="text/javascript">
+    window.onload = function(){getCards();};
+  </script>
+  
+</body>
+</html>
