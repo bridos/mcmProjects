@@ -11,7 +11,7 @@ function getCards(){
 		success: function (json){
 			//var str ="<table><tr><th>mySell</th><th>Trend</th><th>Details</th><th>Action</th><th></th><th>Url</th></tr>";
 			var str ="<table><tr><th>mySell</th><th>Trend</th><th>Foil</th><th>Condition</th><th>Language</th><th>Amount</th>";
-			str+= "<th>Suggestions</th><th></th><th></th><th>Name</th></tr>";
+			str+= "<th>Suggestions</th><th></th><th>Name</th></tr>";
 	     	//var json = JSON.parse(data);
 	     	$.each(json , function(i , item){
 	     		str += "<tr id="+json[i].articleId+">";
@@ -31,8 +31,8 @@ function getCards(){
 	     		//   "</option></select>";
 	     		condvar = '"'+json[i].condition+'"';
 	     		str += "<td><button onclick='updatePrice("+json[i].articleId+","+condvar+","+json[i].langid+","+json[i].foil+")'>Update</button></td>";
-	     		str += "<td><a href="+json[i].url+" target='_blank'>Visit</td>";
-	     		str += "<td>"+json[i].cardname+"</td>";
+	     		str += "<td><a href="+json[i].url+" target='_blank'>"+json[i].cardname+"</td>";
+	     		//str += "<td>"+json[i].cardname+"</td>";
 	     		str += "</tr>";
 	     	})
 	     	str += "</table>"
