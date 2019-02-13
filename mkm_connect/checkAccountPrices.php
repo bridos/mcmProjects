@@ -30,7 +30,28 @@ class checkAccountPrices{
 
 	function getAccountItems($id = 1){
 		$conn = new connectionManager("master");
-		$query = "SELECT product_id , article_id ,selling_price , price_trend , real_url , foil , amount FROM mkm_accounts WHERE user_id = $id";
+		$query = "SELECT 
+				    product_id,
+				    article_id,
+				    selling_price,
+				    price_trend,
+				    real_url,
+				    foil,
+				    amount,
+				    conditions.abbreviation cardcondition,
+				    conditions.id condId,
+				    languages.abbreviation language,
+				    languages.id langId,
+				    replace(substring_index(real_url,'/',-1),'-',' ') cardname
+				FROM
+				    mkm_accounts
+				        INNER JOIN
+				    languages ON languages.id = mkm_accounts.language
+				        INNER JOIN
+				    conditions ON conditions.id = mkm_accounts.cardcondition
+				WHERE
+				    user_id = 1";
+		//die($query);
 		$response = $conn->mysqli->query($query);
 		if(!$response){
 			echo "No select: " . $conn->mysqli->error . "<br>";
@@ -43,7 +64,12 @@ class checkAccountPrices{
 					"trend" => "$result->price_trend",
 					"url" => "$result->real_url",
 					"foil" => "$result->foil",
-					"amount" => "$result->amount"];
+					"amount" => "$result->amount",
+					"language" => "$result->language",
+					"condition" => "$result->cardcondition",
+					"cardname" => "$result->cardname",
+					"langid" => "$result->langId",
+					"condid" => "$result->condId"];
 			}
 			//print_r($this->cards);
 		}

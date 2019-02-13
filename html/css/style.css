@@ -5,7 +5,9 @@ td
     text-align: center; 
     vertical-align: middle;
 }
-
+button{
+	padding: 3px 21px;
+}
 /*#cssTable td 
 {
     

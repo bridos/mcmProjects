@@ -34,6 +34,7 @@ class processAccountItems{
 		} else{
 			while($result = $response->fetch_assoc()){
 				$this->accountItems[$result["article_id"]] = array(
+					"article_id" => $result["article_id"],
 					"product_id" => $result["product_id"],
 					"selling_price" => $result["selling_price"],
 					"trend" => $result["price_trend"]
@@ -74,6 +75,7 @@ class processAccountItems{
 		//die();
 		$conn = new connectionManager("master");
 		foreach($toRemove as $removeItem){
+			print_r($removeItem);
 			$query = "DELETE FROM mkm_accounts WHERE article_id = " . $removeItem["article_id"] . " AND user_id = $this->userId";
 			
 			if(!$conn->mysqli->query($query)){
@@ -101,7 +103,8 @@ class processAccountItems{
 		  	"foil" => $line[9] == "X" ? 1 : 0,
 		  	"amount" => $line[14],
 		  	"condition" => $this->conditions[$line[8]],
-		  	"url" => $this->articleUrl . $line[1]
+		  	"url" => $this->articleUrl . $line[1],
+		  	"language" => $line[7]
 		  );
 		}
 		fclose($file);
@@ -152,9 +155,10 @@ class processAccountItems{
 			$price =$entry["price"];
 			$trend = $entry["trend"];
 			$condition = $entry["condition"];
-			$update = "INSERT INTO mkm_accounts (user_id , article_id , product_id , selling_price , price_trend , amount , foil , real_url , last_crawled , cardcondition) 
-			VALUES($this->userId , $articleId , $productId , $price , $trend , $amount , $foil , '$real_url' , NOW() ,$condition) 
-			ON DUPLICATE KEY UPDATE selling_price = $price , price_trend = $trend , amount = $amount , last_crawled = NOW() , real_url = '$real_url' , cardcondition = $condition";
+			$lang = $entry["language"];
+			$update = "INSERT INTO mkm_accounts (user_id , article_id , product_id , selling_price , price_trend , amount , foil , real_url , last_crawled , cardcondition , language) 
+			VALUES($this->userId , $articleId , $productId , $price , $trend , $amount , $foil , '$real_url' , NOW() ,$condition, $lang) 
+			ON DUPLICATE KEY UPDATE selling_price = $price , price_trend = $trend , amount = $amount , last_crawled = NOW() , real_url = '$real_url' , cardcondition = $condition , language = $lang";
 			//echo "$update<br><br>";
 			 if(!$conn->mysqli->query($update)){
 			 	echo "Failed because: " . $conn->mysqli->error . "<br>";die();

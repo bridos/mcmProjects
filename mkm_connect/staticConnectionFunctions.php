@@ -144,6 +144,12 @@ class mkmApiConnectionInfo{
 	   curl_close($curlHandle);
 	   if($info["http_code"] == 200){
 	  		$this->respJson = $decoded;
+	  	// 	echo "status: <pre>";
+	   // print_r($info);
+	   // echo "</pre>";
+	   // echo "resp: <pre>";
+	   // print_r($decoded);
+	   // echo "</pre>";
 	   		return $this->respJson;
 	   } else{
 	   	die("error in resp<br>");
