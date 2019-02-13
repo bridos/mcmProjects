@@ -73,7 +73,8 @@ class priceUpdater{
 		<request>
 			<article>
 				<idArticle>'.$this->articleId.'</idArticle>
-				<price>'.$this->price.'</price>';
+				<price>'.$this->price.'</price>
+				<comments>Plz plz work</comments>';
 
 		if(isset($this->params['condition'])){
 			$this->xml .= "<condition>".$this->params['condition']."</condition>";
