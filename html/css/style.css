@@ -8,6 +8,9 @@ td
 button{
 	padding: 3px 21px;
 }
+td.name{
+	width: 130px;
+}
 /*#cssTable td 
 {
     
