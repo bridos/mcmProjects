@@ -31,7 +31,7 @@ function getCards(){
 	     		//   "</option></select>";
 	     		condvar = '"'+json[i].condition+'"';
 	     		str += "<td><button onclick='updatePrice("+json[i].articleId+","+condvar+","+json[i].langid+","+json[i].foil+")'>Update</button></td>";
-	     		str += "<td><a href="+json[i].url+" target='_blank'>"+json[i].cardname+"</td>";
+	     		str += "<td class = 'name'><a href="+json[i].url+" target='_blank'>"+json[i].cardname+"</td>";
 	     		//str += "<td>"+json[i].cardname+"</td>";
 	     		str += "</tr>";
 	     	})

@@ -87,7 +87,7 @@ class priceUpdater{
 		}
 		if(isset($this->params['foil'])){
 			if($this->params['foil'] === true){
-				echo "in!<br>";
+				//echo "in!<br>";
 				$this->xml .= "<isFoil>".$this->params['foil']."</isFoil>";
 			} else{
 				//echo "foil param false<br>";
