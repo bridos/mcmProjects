@@ -53,10 +53,10 @@ function getSelectFromJson(json){
 	 	Math.floor(json.mySell*10)/10 ,
 	  	Math.ceil(json.trend*10)/10,
 	    Math.floor(json.trend*10)/10,
-	    json.trend];
+	    Number(json.trend)];
 
 	var unique = prices.filter( onlyUnique );
-	
+	console.log(unique);
 	$.each(unique , function(i , item){
 		if(item == json.mySell){
 			return;
